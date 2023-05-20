@@ -1,25 +1,39 @@
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
+// VS Code API
 import * as vscode from 'vscode';
 
-// This method is called when your extension is activated
-// Your extension is activated the very first time the command is executed
+// Brain Provider
+import { BrainProvider } from './BrainProvider/BrainProvider';
+import registerBrainCommands from './Commands/commands';
+
+
+
+
+
+
+
 export function activate(context: vscode.ExtensionContext) {
+	
+	// Register TreeView
+	const brainProvider = new BrainProvider();
+	brainProvider.register();
 
-	// Use the console to output diagnostic information (console.log) and errors (console.error)
-	// This line of code will only be executed once when your extension is activated
+	// Register Commands
+	registerBrainCommands(brainProvider);
+
+
+
+
+
+	//#region Debug
 	console.log('Congratulations, your extension "brain-notes" is now active!');
-
-	// The command has been defined in the package.json file
-	// Now provide the implementation of the command with registerCommand
-	// The commandId parameter must match the command field in package.json
-	let disposable = vscode.commands.registerCommand('brain-notes.helloWorld', () => {
-		// The code you place here will be executed every time your command is executed
-		// Display a message box to the user
-		vscode.window.showInformationMessage('Hello World from Brain-Notes!');
+	// Define no package.json -> registra o comando com registerCommand
+	// O commandId deve ser o mesmo do package.json
+	let comandoAtivado = vscode.commands.registerCommand('brain-notes.helloWorld', () => {
+		vscode.window.showInformationMessage(' Brain-Notes Ativado!');
 	});
-
-	context.subscriptions.push(disposable);
+	// Registra um disposable para ser descartado quando a extensão for desativada
+	context.subscriptions.push(comandoAtivado);
+	//#endregion
 }
 
 // This method is called when your extension is deactivated

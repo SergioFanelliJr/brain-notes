@@ -12,10 +12,98 @@
   "activationEvents": [],
   "main": "./out/extension.js",
   "contributes": {
+    "views": {
+      "explorer": [
+        {
+          "id": "brain-notes",
+          "name": "Brain Notes"
+        }
+      ]
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "brain-notes.addNewBrain",
+          "when": "view == brain-notes",
+          "group": "navigation"
+        },
+        {
+          "command": "brain-notes.refresh",
+          "when": "view == brain-notes",
+          "group": "navigation"
+        }
+      ],
+      "view/item/context": [
+        {
+            "command": "brain-notes.addNewMemory",
+            "when": "viewItem == brain",
+            "group": "inline"
+        },
+        {
+            "command": "brain-notes.deleteBrain",
+            "when": "viewItem == brain",
+            "group": "inline"
+        },
+        {
+            "command": "brain-notes.deleteMemory",
+            "when": "viewItem == memory",
+            "group": "inline"
+        }
+    ]
+    },
     "commands": [
       {
         "command": "brain-notes.helloWorld",
-        "title": "Hello World"
+        "title": "Brain: Hello World"
+      },
+      {
+        "command": "brain-notes.refresh",
+        "title": "Brain: Refresh",
+        "icon":
+        {
+          "light": "./src/Resources/refreshLight.svg",
+          "dark": "./src/Resources/refreshDark.svg"
+        }
+      },
+      {
+        "command": "brain-notes.addNewMemory",
+        "title": "Brain: Add New Memory",
+        "icon":
+        {
+          "light": "./src/Resources/newLight.svg",
+          "dark": "./src/Resources/newDark.svg"
+        }
+      },
+      {
+        "command": "brain-notes.addNewBrain",
+        "title": "Brain: Add New Brain",
+        "icon":
+        {
+          "light": "./src/Resources//newLight.svg",
+          "dark": "./src/Resources/newDark.svg"
+        }
+      },
+      {
+        "command": "brain-notes.deleteBrain",
+        "title": "Brain: Delete Brain",
+        "icon":
+        {
+          "light": "./src/Resources/trashLight.svg",
+          "dark": "./src/Resources/trashDark.svg"
+        }
+      },
+      {
+        "command": "brain-notes.deleteMemory",
+        "title": "Brain: Delete Memory",
+        "icon":
+        {
+          "light": "./src/Resources/trashLight.svg",
+          "dark": "./src/Resources/trashDark.svg"
+        }
+      },
+      {
+        "command": "brain-Notes.openMemory",
+        "title": "Brain: Open Memory"
       }
     ]
   },
