@@ -1,8 +1,16 @@
 {
   "name": "brain-notes",
-  "displayName": "Brain-Notes",
+  "displayName": "Brain Notes",
   "description": "Simple note taking across workspaces",
-  "version": "0.0.1",
+  "version": "0.9",
+  "publisher": "Elefante.dev",
+  
+  "license": "MIT",
+  "preview": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SergioFanelliJr/brain-notes"
+  },
   "engines": {
     "vscode": "^1.78.0"
   },
