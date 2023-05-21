@@ -2,7 +2,7 @@
   "name": "brain-notes",
   "displayName": "Brain Notes",
   "description": "Simple note taking across workspaces",
-  "version": "0.9",
+  "version": "0.9.1",
   "publisher": "Elefante.dev",
   
   "license": "MIT",
